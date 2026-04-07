@@ -22,7 +22,7 @@ capabilities:
 - **Distinguishes market types**: Growing (rising tide), Consolidating (winner-take-most), Transitioning (category redefinition).
 
 ## 3. Reference Dependencies
-- `wiki/references/messaging-guide.md`
+- `wiki/references/framework-standards.md`
 - `wiki/references/forbidden-phrases.md`
 - `wiki/notes/competitive-audit-*.md`
 

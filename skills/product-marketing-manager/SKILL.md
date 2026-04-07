@@ -22,7 +22,7 @@ capabilities:
 - **Battlecards**: Builds honest competitive cards, including weaknesses to maintain credibility.
 
 ## 3. Reference Dependencies
-- `wiki/references/messaging-guide.md`
+- `wiki/references/framework-standards.md`
 - `wiki/references/campaign-brief-template.md`
 - `wiki/references/competitive-battlecards.md`
 
