@@ -22,6 +22,7 @@ A multi-persona simulation engine for high-stakes decision-making and strategic 
 
 ### 3. Specialist Agents (The High-Fidelity Execution Layer)
 Standalone, autonomous agents designed for precise, domain-specific tasks.
+- **7 Core Specialists**: Brand & Market Strategist, Technical Advisor, Financial & Business Analyst, Growth & Experimentation Leader, User Research & Insights Specialist, Product Marketing Manager, and Data & Analytics Lead.
 - **Fidelity-First**: Specialists operate under strict constraints (e.g., brand guidelines, technical specs, or compliance rules) that general models often fail to maintain.
 - **Modular**: New specialists can be added to the federation as needed for specific projects.
 
