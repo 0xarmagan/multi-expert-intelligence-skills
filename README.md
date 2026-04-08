@@ -1,6 +1,22 @@
 # Multi-Expert Intelligence Agent System
 
-A federated expert framework for Claude Code that delivers analysis-first, multi-persona responses with a persistent wiki-based memory. Every session builds on what came before — knowledge accumulates rather than resets.
+A federated expert framework for Claude Code or Gemini 3 that delivers analysis-first, multi-persona responses with a persistent wiki-based memory. Every session builds on what came before — knowledge accumulates rather than resets.
+
+## Main Advantages
+
+- **Compounding Memory:** Unlike standard chat sessions that "forget" once closed, this system uses a structured wiki to accumulate knowledge, decisions, and context over time.
+- **Multi-Persona Rigor:** Every complex problem is analyzed through multiple specialized lenses (e.g., Financial, Technical, Brand), surfacing tensions and trade-offs that a single-perspective analysis would miss.
+- **Analysis-First Culture:** The system is hard-coded to evaluate and challenge assumptions before offering recommendations, preventing "answering the wrong question perfectly."
+- **Epistemic Honesty:** Built-in confidence reporting and blind-spot detection ensure you know exactly how reliable an analysis is and where the expert's systematic biases lie.
+- **Zero-Tax Interoperability:** Highly sovereign architecture—move between projects and domains without losing your knowledge base or being locked into a proprietary stack.
+
+## For whom is it beneficial
+
+- **Founders & CEOs:** For evaluating high-stakes strategic moves, category design, and competitive counter-positioning.
+- **Product & Engineering Leads:** For navigating complex build-vs-buy decisions and architectural trade-offs where business impact is as critical as technical elegance.
+- **Growth & Marketing Strategists:** For designing rigorous experimentation loops and brand-aligned acquisition campaigns.
+- **Consultants & Analysts:** For building a "second brain" that automates the heavy lifting of research synthesis and multi-dimensional evaluation.
+- **Strategic Operations:** For maintaining organizational memory and ensuring cross-functional decisions are documented and searchable.
 
 ---
 
@@ -152,19 +168,3 @@ Use `wiki/concepts/specialist-agent-template.md` as a base. Each specialist need
 Register the new specialist in the Librarian's routing logic.
 
 ---
-
-## Main Advantages
-
-- **Compounding Memory:** Unlike standard chat sessions that "forget" once closed, this system uses a structured wiki to accumulate knowledge, decisions, and context over time.
-- **Multi-Persona Rigor:** Every complex problem is analyzed through multiple specialized lenses (e.g., Financial, Technical, Brand), surfacing tensions and trade-offs that a single-perspective analysis would miss.
-- **Analysis-First Culture:** The system is hard-coded to evaluate and challenge assumptions before offering recommendations, preventing "answering the wrong question perfectly."
-- **Epistemic Honesty:** Built-in confidence reporting and blind-spot detection ensure you know exactly how reliable an analysis is and where the expert's systematic biases lie.
-- **Zero-Tax Interoperability:** Highly sovereign architecture—move between projects and domains without losing your knowledge base or being locked into a proprietary stack.
-
-## Who can use it very well
-
-- **Founders & CEOs:** For evaluating high-stakes strategic moves, category design, and competitive counter-positioning.
-- **Product & Engineering Leads:** For navigating complex build-vs-buy decisions and architectural trade-offs where business impact is as critical as technical elegance.
-- **Growth & Marketing Strategists:** For designing rigorous experimentation loops and brand-aligned acquisition campaigns.
-- **Consultants & Analysts:** For building a "second brain" that automates the heavy lifting of research synthesis and multi-dimensional evaluation.
-- **Strategic Operations:** For maintaining organizational memory and ensuring cross-functional decisions are documented and searchable.
