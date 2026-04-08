@@ -14,6 +14,14 @@ A federated expert framework for **Gemini CLI** and **Claude Code** that deliver
 
 ---
 
+## 💎 The Main Differentiator: "The Compounding Council"
+
+The primary feature that sets this system apart from standard AI chat is the **integration of a persistent memory layer (Wiki) with an adversarial expert council.**
+
+While most AI interactions are transient and "forget" context once a session ends, this framework ensures that **knowledge is never lost.** Every decision, source, and strategic insight is distilled and filed back into a structured repository. The system doesn't just answer your question—it **evolves its understanding** of your project with every interaction, creating a "Second Brain" that actually becomes more intelligent as the wiki grows.
+
+---
+
 ## 👥 The Expert Panel (Personas)
 
 | Persona | Primary Triggers |
