@@ -71,6 +71,20 @@ Each project is isolated under `projects/` with its own isolated memory (wiki) a
 - **Initialize a project:** `/init-project <name>`
 - **Switch projects:** `cd projects/<name> && gemini` (or `claude`)
 
+---
+
+## 🛠️ Recommended Tool Stack
+
+For the best experience with the Multi-Expert system, we recommend the following "Ultimate" stack:
+
+- **🧠 Reasoning Engine:**
+    - **Claude 3.5 Sonnet (via Claude Code):** The gold standard for the **Specialist Council** and the 9-step reasoning pipeline.
+    - **Gemini 1.5 Pro (via Gemini CLI):** Best for the **Librarian** and **Scout** due to its 2-million-token context window.
+- **💻 Agentic IDE:**
+    - **Google Antigravity:** An agent-first architecture perfect for delegating background tasks to the Council while you work in the foreground.
+- **📔 Knowledge Dashboard:**
+    - **Obsidian:** Essential for the **Wiki Layer**. Use its Graph View and Dataview plugins to visualize your project's compounding memory.
+
 ### Structure
 ```text
 projects/<name>/
