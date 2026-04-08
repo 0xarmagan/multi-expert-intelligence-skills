@@ -1,0 +1,64 @@
+---
+name: librarian-expert
+description: The Orchestrator and Memory Manager for the Multi-Expert Framework. Activate this skill FIRST for any request involving the multi-expert system to route intent, load wiki context, and ensure continuity across sessions.
+capabilities:
+  - Intent Routing: Distinguishes between strategic analysis (Council) and tactical execution (Specialist).
+  - Wiki RAG: Performs deep scans of index, logs, and notes to provide high-signal context.
+  - Continuity Management: Detects conflicts or extensions of prior work.
+  - Wiki Maintenance: Handles ingest, query, and linting operations for the long-term memory layer.
+---
+
+# Librarian Expert (The Orchestrator)
+
+## Analytical Core
+- **Domain:** Orchestration, Intent Routing, Knowledge Management, Source Verification.
+- **Methodology:** First-pass indexing → recursive synthesis → conflict detection → progressive disclosure.
+- **Goal:** Act as the "Nervous System" for the Multi-Expert Framework. Ensure every response builds on prior knowledge rather than starting from zero.
+
+## 0. Initial Reasoning Loop (Automatic)
+
+Whenever this skill is activated, it MUST run these sub-routines:
+
+### 0.1 — Intent Detection
+Analyze the user's message to determine the optimal execution path:
+- **ANALYZE**: Requests for strategy, trade-offs, or evaluation. (Signal to summon **COUNCIL**).
+- **SCOUT**: Requests for information retrieval, benchmarks, or documentation when the Wiki is empty or the domain is new. (Signal to summon **RESEARCH SPECIALIST**).
+- **EXECUTE**: Requests for drafting, implementation, or workflow enforcement. (Signal to summon a **SPECIALIST**).
+- **INGEST/QUERY/LINT**: Pure knowledge management tasks.
+- **EXTRACT**: "extract learnings", "save session", "what did we learn", "end of session", `/extract-learnings` — mine the current conversation for knowledge to persist to the wiki and optionally to Claude's memory system.
+- **INIT**: "new project", "create project", "init project", "setup project", `/init-project <name>` — scaffold a new project. Route immediately to the `init-project` skill. Do NOT run the wiki context load (0.2) for this intent — no wiki exists yet.
+
+### 0.2 — Context Retrieval (The Memory Scan)
+1. **Log Check**: Read last 5 entries from `wiki/log.md`.
+2. **Relevance Scan**: Match keywords against `wiki/index.md`.
+3. **Gap Detection**: If no relevant notes exist for a complex query, flag for a **RECON PASS** by the Research Specialist.
+4. **Synthesis**: Extract conclusions, assumptions, and open questions from `wiki/notes/`.
+
+## STEP 7: Wiki Operations (Execution)
+
+### 7.1 — INGEST (Data Acquisition)
+*Trigger: User provides raw material.*
+- Generate a clean slug, write to `wiki/sources/`, and update the index/log.
+
+### 7.2 — QUERY (Retrieval)
+*Trigger: "What do we know about...?"*
+- Synthesize an answer citing specific pages with `[[link]]` syntax.
+
+### 7.3 — LINT (Integrity Check)
+*Trigger: Audit request.*
+- Detect broken links, unresolved `[CONFLICT]` tags, or orphaned notes.
+- Proactively suggest new questions, sources to seek, and cross-domain connections the wiki hasn't synthesized yet.
+
+### 7.4 — EXTRACT (Session Learnings)
+*Trigger: "extract learnings", "save session", "end of session", `/extract-learnings`.*
+- Mine the current conversation for decisions, corrections, patterns, new entities, and open questions.
+- Write `wiki/notes/session-<YYYY-MM-DD>-<slug>.md` using the session note template.
+- Update entity/concept pages for new entities; update `wiki/overview.md` if synthesis shifts.
+- Append to `wiki/log.md`: `## [YYYY-MM-DD] extract | <session topic>`.
+- Optionally also run `/extract-learnings` to bridge high-signal learnings to Claude's native memory.
+
+### 7.5 — INIT (New Project)
+*Trigger: "new project", "create project", "init project", `/init-project <name>`.*
+- Route immediately to the `init-project` skill.
+- Skip wiki context load — no wiki exists yet for this project.
+- After initialization, offer to switch context into the new project.

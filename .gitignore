@@ -1,8 +1,6 @@
 .DS_Store
 experts/
 knowledge/
-skills/*.skill
-!skills/*.skill.bak
-# Keep the actual .skill files out if they are binary archives 
-# or keep them if they are part of the core project.
-# Since they are Zip files, users might prefer keeping them or keeping the source.
+# Allow .skill files as they are core to the framework
+!skills/*.skill
+projects/

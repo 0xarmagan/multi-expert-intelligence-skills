@@ -70,7 +70,7 @@ The wiki is the **compounding memory layer**. The expert system is the **reasoni
 
 ---
 
-## The 7 Personas
+## The 8 Personas
 
 | Persona | Domain | Primary triggers |
 |---|---|---|
@@ -81,6 +81,7 @@ The wiki is the **compounding memory layer**. The expert system is the **reasoni
 | Technical Advisor | Architecture, infrastructure, APIs, build vs. buy | architecture, system, technical, stack, scale, database |
 | Data & Analytics Lead | Metrics, dashboards, forecasting, KPI frameworks | data, metrics, analytics, forecast, KPI, model |
 | Financial & Business Analyst | Unit economics, pricing, P&L, investment cases | finance, revenue, cost, pricing, ROI, margin |
+| Research Specialist (The Scout) | Information retrieval, signal distillation, evidence triangulation | search, benchmark, documentation, facts, recon, deep-dive |
 
 ---
 
