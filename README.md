@@ -2,7 +2,7 @@
 
 A federated expert framework for **Gemini CLI** and **Claude Code** that delivers analysis-first, multi-persona responses with a persistent, wiki-based memory.
 
- ![Multi-Expert System Overview](https://hackmd.io/_uploads/rJXLCsrhWe.svg)
+ ![Multi-Expert System Overview](https://hackmd.io/_uploads/BJm-u3r2be.svg)
 
 ---
 
