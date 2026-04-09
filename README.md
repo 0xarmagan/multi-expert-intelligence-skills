@@ -40,22 +40,6 @@ While most AI interactions are transient and "forget" context once a session end
 
 ---
 
-## 🏗️ Architecture: The 9-Step Pipeline
-
-The system follows a rigorous reasoning loop to ensure high-signal output:
-
-1.  **Context Load:** Ingests relevant wiki context (logs, index, prior notes).
-2.  **Scoring:** Ranks complexity from **Lite** to **Collaboration** mode.
-3.  **Pre-Analysis Challenge:** Identifies "real" questions and contestable assumptions.
-4.  **Persona Selection:** Summons the right experts based on domain triggers.
-5.  **Adversarial Dialogue:** Forces experts into productive tension to surface trade-offs.
-6.  **Tooling:** Triggers `web_search` or `read_file` to fill knowledge gaps.
-7.  **Multi-Layer Analysis:** Evaluates Surface, Strategic, and Systemic impacts.
-8.  **Wiki Writeback:** Persists substantive analysis to `notes/`, `sources/`, and `entities/`.
-9.  **Self-Assessment:** Appends a quality score and confidence report to the response.
-
----
-
 ## 📂 Wiki Operations
 
 | Operation | Trigger | Action |
