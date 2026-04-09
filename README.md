@@ -37,6 +37,7 @@ While most AI interactions are transient and "forget" context once a session end
 | **📊 Data & Analytics** | KPI frameworks, forecasting, causal inference. |
 | **💰 Finance & Business** | Unit economics, pricing, ROI, P&L modeling. |
 | **🛰️ Research (Scout)** | Deep-dives, benchmarks, triangulation, signal detection. |
+| **Meta Advisor** | Reasoning Auditor, audit dialogues quality, delivers verdict. |
 
 ---
 
