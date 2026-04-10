@@ -2,26 +2,26 @@
 
 A federated SKILL framework for **Gemini CLI** and **Claude Code** that delivers analysis-first, multi-persona responses with a persistent, wiki-based memory.
 
- ![Multi-Expert System Overview](https://hackmd.io/_uploads/BJm-u3r2be.svg)
+---
+
+## Main Advantages
+
+- **Compounding Memory:** Uses a structured wiki to accumulate knowledge and context over time.
+- **Multi-Persona Rigor:** Analyzes complex problems through multiple specialized lenses (Financial, Technical, Brand, etc.).
+- **Analysis-First:** Evaluation and assumption-challenging always precede recommendations.
+- **Epistemic Honesty:** Built-in confidence reporting and blind-spot detection for every analysis.
+- **Zero-Tax Interoperability:** Move between projects without losing your underlying knowledge base.
 
 ---
 
-
-## 🚀 Main Advantages
-
-- **💾 Compounding Memory:** Uses a structured wiki to accumulate knowledge and context over time.
-- **⚖️ Multi-Persona Rigor:** Analyzes complex problems through multiple specialized lenses (Financial, Technical, Brand, etc.).
-- **🔍 Analysis-First:** Evaluation and assumption-challenging always precede recommendations.
-- **🛡️ Epistemic Honesty:** Built-in confidence reporting and blind-spot detection for every analysis.
-- **🌐 Zero-Tax Interoperability:** Move between projects without losing your underlying knowledge base.
-
----
-
-## 💎 The Main Differentiator: "The Compounding Council"
+## The Main Differentiator: "The Compounding Council"
 
 The primary feature that sets this system apart from standard AI chat is the **integration of a persistent memory layer (Wiki) with an adversarial expert council.**
 
 While most AI interactions are transient and "forget" context once a session ends, this framework ensures that **knowledge is never lost.** Every decision, source, and strategic insight is distilled and filed back into a structured repository. The system doesn't just answer your question—it **evolves its understanding** of your project with every interaction, creating a "Second Brain" that actually becomes more intelligent as the wiki grows.
+
+
+ ![Multi-Expert System Overview](https://hackmd.io/_uploads/BJm-u3r2be.svg)
 
 ---
 
