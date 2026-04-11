@@ -212,60 +212,6 @@ Before scoring the next question, meta files are loaded (L1.5 token budget tier)
 ### 4. Pattern Crystallization
 When a pattern appears in 3+ sessions consistently, it promotes from `emerging` to `crystallized` and is applied automatically. LEARN and LINT audit the meta layer, detect drift, and flag patterns approaching threshold.
 
----
-
-## Ethereum & Web3 Knowledge Layer
-
-All personas carry a shared Ethereum Context layer when handling web3 topics:
-
-- **History**: Full timeline from Vitalik's 2013 whitepaper through The Merge (2022), EIP-4844 (2024), Pectra/EIP-7702 (2025) to current 2026 state
-- **Culture & values**: Credible neutrality, trustlessness, hyperstructure concept, EIP governance, cypherpunk roots
-- **Ecosystem actors**: EF, ConsenSys, Uniswap, Aave, MakerDAO, Optimism, Arbitrum, Base, EigenLayer, Lido, Flashbots, BuidlGuidl, Gitcoin
-
-### Stale Training Data Corrections (applied by default)
-
-These are frequently wrong in LLM training data and are corrected as default priors:
-
-- Gas is not expensive: mainnet ETH transfer ~$0.002, L2 swap ~$0.002 (2021-era prices are stale)
-- Foundry is the default toolchain, not Hardhat
-- EIP-7702 is live — EOAs have smart contract superpowers
-- Dominant DEX per L2: Aerodrome (Base), Velodrome (Optimism), Camelot (Arbitrum) — not Uniswap
-- Never assume contract addresses — always verify
-
-### ethskills Live Fetch Integration
-
-Ethereum-specific questions fetch current documentation from `https://ethskills.com/<topic>/SKILL.md` before analysis — not after. Training data is stale; live fetch is not.
-
-| Question type | Fetched skill |
-|---|---|
-| Gas costs, transaction fees | `gas/SKILL.md` |
-| L2 selection, bridging, deployment | `l2s/SKILL.md` |
-| Token standards (ERC-20/721/1155/8004) | `standards/SKILL.md` |
-| Wallets, multisig, account abstraction, EIP-7702 | `wallets/SKILL.md` |
-| Tooling (Foundry, Scaffold-ETH 2) | `tools/SKILL.md` |
-| DeFi composability, Uniswap, Aave | `building-blocks/SKILL.md` |
-| Smart contract security | `security/SKILL.md` |
-| On-chain indexing, The Graph, Dune | `indexing/SKILL.md` |
-| Any specific contract address | `addresses/SKILL.md` |
-| Full dApp build plan | `ship/SKILL.md` |
-| Ethereum mental models | `concepts/SKILL.md` |
-
----
-
-## Web3 Adversarial Pairings
-
-Key tensions surfaced in Collaboration Mode for web3 questions:
-
-| Primary | Supporting | Core tension |
-|---|---|---|
-| Web3 Protocol Architect | Token & Mechanism Designer | Technical correctness vs. incentive viability — a sound mechanism may be economically unrationalizable at scale |
-| Web3 Protocol Architect | Financial Analyst | Decentralization (security, trust minimization) vs. capital efficiency — where is adequate security threshold? |
-| Token & Mechanism Designer | Growth Leader | Sustainable incentive design vs. aggressive acquisition — mercenary capital produces metrics that collapse post-incentive |
-| Token & Mechanism Designer | Brand Strategist | Mechanism integrity vs. narrative resonance — the correct design may be too complex to communicate |
-| Financial Analyst | Token & Mechanism Designer | Protocol revenue vs. token emissions — where is the emissions-to-revenue crossover that determines viability? |
-
----
-
 ## Confidence Model
 
 Every response scores confidence on two independent axes:
