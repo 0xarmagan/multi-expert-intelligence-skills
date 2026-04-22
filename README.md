@@ -109,24 +109,74 @@ When two personas are activated, the goal is productive collision, not parallel 
 
 ---
 
-## 📂 Wiki Operations
+## The Wiki System
 
-| Operation | Trigger | Action |
-| :--- | :--- | :--- |
-| **ANALYZE** | Analysis / evaluation request | Full expert pipeline + wiki writeback |
-| **INGEST** | URL, doc, transcript | Extracts claims, updates entity/concept pages |
-| **QUERY** | "What do we know about X?" | Synthesizes wiki knowledge with citations |
-| **LINT** | "Audit the wiki" | Detects conflicts, orphans, stale TODOs → produces `STRATEGIC_DEBT.md` |
+### Directory Structure
 
-### Knowledge Linter
+```
+wiki/
+  index.md          — content catalog; updated on every operation
+  log.md            — append-only chronological record
+  overview.md       — evolving domain synthesis
+  notes/            — filed analysis outputs (the compounding layer)
+  sources/          — one summary per ingested raw source
+  entities/         — one page per named entity (person, org, project, protocol)
+  concepts/         — one page per concept or theme
+  meta/             — reasoning quality layer (NOT domain knowledge)
+    calibration.md      — complexity scoring deltas and correction signals
+    persona-fit.md      — learned persona matches + discovered blind spots
+    framing-patterns.md — crystallized reframe patterns by topic
+    user-prefs.md       — communication and format preferences
 
-Runs passively during every Wiki Reasoning Loop. Flags three types of integrity issues before analysis proceeds:
+raw/                — source documents; IMMUTABLE, never modified by LLM
+```
 
-- `[INTEGRITY_ALERT] Data inconsistency` — same metric with conflicting values across pages
-- `[INTEGRITY_ALERT] Strategic drift` — recent notes shifted a claim the overview hasn't caught up with
-- `[INTEGRITY_ALERT] Undefined concept` — term used 2+ times with no concept page
+### Wiki Operations
 
-Active alerts surface in the Pre-Analysis Challenge and affect the Evidence Quality score.
+| Operation | Trigger | What it does |
+|---|---|---|
+| `ANALYZE` | Any analysis request | Full reasoning pipeline + knowledge writeback + meta writeback |
+| `INGEST <source>` | URL, doc, transcript, spec | Extracts claims; creates/updates source, entity, and concept pages |
+| `QUERY <question>` | "What do we know about X?" | Synthesizes wiki knowledge with citations; files if substantive |
+| `LINT` | "Audit the wiki" | Detects conflicts, orphan pages, unresolved TODOs, meta drift |
+| `LEARN` | "Learn from that" | Synthesizes session learning signals into wiki/meta/; promotes patterns to crystallized |
+
+### Knowledge never evaporates
+
+Every MEDIUM+ analysis produces two outputs: the answer, and the wiki update. Analysis filed to `wiki/notes/` becomes input to future sessions via the Wiki Reasoning Loop (Step 0b). Prior conclusions are not overridden silently — conflicts are flagged explicitly with `[CONFLICT with: page]`.
+
+---
+
+## The Self-Training Layer
+
+The system learns from every session through four mechanisms:
+
+### 1. Signal Capture
+After each analysis, the Learning Event Generator (Step 9) detects:
+- **Calibration delta** — complexity tier used differed from initial score
+- **Persona surprise** — keyword-triggered persona was overridden or supplemented
+- **Framing correction** — Pre-Analysis Challenge caught a framing error
+- **New blind spot** — analysis surfaced a systematic gap not in either register
+- **User preference signal** — correction or strong confirmation in user's message
+
+### 2. Four Meta Files
+
+| File | What it accumulates |
+|---|---|
+| `calibration.md` | When complexity scores were off and why |
+| `persona-fit.md` | When a better persona existed + discovered blind spots per persona |
+| `framing-patterns.md` | Question patterns that consistently need reframing |
+| `user-prefs.md` | Communication, format, and domain preferences |
+
+### 3. Prior Injection
+Before scoring the next question, meta files are loaded (L1.5 token budget tier). The system doesn't start cold — it starts with:
+- Calibration adjustment applied to complexity score
+- Framing patterns seeding the Pre-Analysis Challenge
+- Learned persona fit signal available for persona selection
+
+### 4. Pattern Crystallization
+When a pattern appears in 3+ sessions consistently, it promotes from `emerging` to `crystallized` and is applied automatically. LEARN and LINT audit the meta layer, detect drift, and flag patterns approaching threshold.
+
 
 ---
 
