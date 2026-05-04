@@ -1,214 +1,160 @@
-# 🧠 Multi-Expert Intelligence Agent System
+# Multi-Expert Intelligence Agent System
 
-A federated expert framework for **Claude Code** and **Gemini CLI** that delivers analysis-first, multi-persona responses with a persistent wiki-based memory, an adversarial reasoning council, and a built-in quality assurance layer.
+Structured multi-agent reasoning + persistent knowledge accumulation + self-calibrating analysis.
 
----
-
-## 🚀 Main Advantages
-
-- **💾 Compounding Memory:** Uses a structured wiki to accumulate knowledge and context over time — prior conclusions become active working memory, not passive archive.
-- **⚖️ Multi-Persona Rigor:** Analyzes complex problems through multiple specialized lenses (Financial, Technical, Brand, Growth, etc.) with genuine adversarial tension.
-- **🔍 Analysis-First:** Evaluation and assumption-challenging always precede recommendations. The Pre-Analysis Challenge catches reframeable questions before any expert speaks.
-- **🛡️ Epistemic Honesty:** Dual-axis confidence reporting (domain fit × epistemic quality), blind-spot detection with mandatory Re-process Instruction, and a Self-Assessment Scorecard on every response.
-- **🔬 Quality Assurance Layer:** A Reviewer Layer between expert output and delivery checks brand voice, hallucination risk, format conventions, and gates high-stakes decisions for human approval.
-- **🌐 Zero-Tax Interoperability:** Move between projects without losing your underlying knowledge base.
+An agentic system where each expert persona is a first-class agent with isolated context, restricted tool access, and project-scoped memory — coordinated by an orchestrator agent.
 
 ---
 
-## 💎 The Main Differentiator: "The Compounding Council"
+## Quick Start
 
-The primary feature that sets this system apart from standard AI chat is the **integration of a persistent memory layer (Wiki) with an adversarial expert council and a self-improving quality gate.**
+1. **Clone this repo**
+2. **Use in Claude Code:** Copy `.claude/agents/` to your project root or ask a strategic question
+3. **Initialize wiki** (optional): Create `wiki/` directory for persistent memory across sessions
 
-While most AI interactions are transient, this framework ensures that **knowledge is never lost.** Every decision, source, and strategic insight is distilled and filed back into a structured repository. The system doesn't just answer your question — it **evolves its understanding** of your project with every interaction. And the adversarial design means it doesn't just accumulate agreement: it accumulates genuine tension, flags weak reasoning, and forces verdicts rather than balanced hedges.
-
----
-
-## 👥 The Expert Panel (Personas)
-
-| Persona | Primary Triggers |
-| :--- | :--- |
-| **🎨 Brand & Market** | Competitive positioning, category design, market entry |
-| **👥 User Research** | Research design, behavioral insights, qualitative synthesis |
-| **📈 Growth & Exp** | Growth systems, A/B testing, funnels, retention loops |
-| **📣 Product Marketing** | Launch tactics, acquisition, messaging, channel mix |
-| **🛠️ Technical Advisor** | System architecture, infra trade-offs, build vs. buy |
-| **📊 Data & Analytics** | KPI frameworks, forecasting, causal inference |
-| **💰 Finance & Business** | Unit economics, pricing, ROI, P&L modeling |
-| **🛰️ Research (Scout)** | Deep-dives, benchmarks, triangulation, signal detection |
-
-Plus **Web3 Specialist** personas for protocol architecture and token mechanism design.
+The orchestrator auto-detects and routes requests to appropriate experts.
 
 ---
 
-## 🏗️ Architecture: The Full Pipeline
+## Architecture
 
 ```
-Session Start
-  │
-  ├─ Wiki Reasoning Loop [+ Knowledge Linter passive scan]
-  │     • Load prior notes, index, recent log
-  │     • Check for [INTEGRITY_ALERT]: data conflicts, strategic drift, undefined terms
-  │     • Surface any active alerts before analysis proceeds
-  │
-  ├─ Complexity Scoring → LOW / MEDIUM / HIGH / VERY HIGH
-  │
-  ├─ Pre-Analysis Challenge
-  │     • Is this the real question?
-  │     • Contestable assumptions surfaced
-  │     • Strongest case against the obvious answer
-  │
-  ├─ Persona Selection [two-axis confidence: domain fit × epistemic quality]
-  │     [if VERY HIGH → Adversarial Inner Dialogue before writing]
-  │
-  ├─ Tool Triggers [web_search, file reads, live fetch for Ethereum topics]
-  │
-  ├─ Multi-Layer Analysis [Surface → Strategic → Systemic]
-  │
-  ├─ Mid-Analysis Escalation Check (STEP 4a)
-  │     • Did analysis reveal higher complexity than initial score?
-  │     • Cross-domain dependency? → targeted Expert Consultation [Consulting X on Y]
-  │     • Escalation noted explicitly in output
-  │
-  ├─ Blind Spot Detection (STEP 4b) [Re-process Instruction if material]
-  │     • Per-persona static register + dynamic register
-  │     • Material blind spots: rewrite analysis, not add disclaimers
-  │
-  ├─ Synthesis Test → output must pass before writing
-  │
-  ├─ Calibrated Expert Output
-  │
-  ├─ REVIEWER LAYER (STEP 5b)
-  │     • Brand Voice check
-  │     • Hallucination Check (claims vs. brief)
-  │     • Format Check (channel conventions)
-  │     • Human-in-the-Loop Gate (pauses for approval on budget / launch / pricing)
-  │
-  ├─ Wiki Writeback → notes/, entities/, concepts/, sources/
-  │
-  └─ Self-Assessment Scorecard (L1–L4 table)
-        • Analytical Depth / Evidence Quality / Neutrality / Actionability
-        • Confidence: domain fit × epistemic quality
-        • Meta-Advisor: Weak Synthesis flag status, Silo Audit verdict
-        [LINT on demand → STRATEGIC_DEBT.md]
+.claude/agents/
+├── orchestrator.md                 ← Routes requests, manages wiki, synthesizes outputs
+├── brand-market-strategist.md      ← 9 specialized experts
+├── user-research-specialist.md
+├── growth-leader.md
+├── product-marketing-manager.md
+├── technical-advisor.md
+├── data-analytics-lead.md
+├── financial-analyst.md
+├── web3-protocol-architect.md
+├── token-mechanism-designer.md
+└── meta-advisor.md                 ← Reasoning auditor (VERY HIGH complexity only)
 ```
 
 ---
 
-## 🤝 Collaboration Mode (VERY HIGH Complexity)
+## How It Works
 
-When two personas are activated, the goal is productive collision, not parallel summaries.
+**User asks → Orchestrator loads → Routes to expert(s) → Experts analyze in isolated contexts → Orchestrator synthesizes → Writes to wiki.**
 
-1. Each persona stakes an independent position internally (Adversarial Inner Dialogue)
-2. Supporting persona reads Primary's conclusions and responds to them — handoff, not parallel tracks
-3. The load-bearing disagreement is named explicitly
-4. **Meta-Advisor** (reasoning auditor, not a domain expert) runs three mandatory checks:
-   - **Hedging Detection** — scans for "it depends"/"both are viable"; raises a **Weak Synthesis flag** and forces a verdict
-   - **Silo Audit** — did the experts genuinely integrate, or operate as parallel silos? Corrects if detected
-   - **Assumption Challenge** — names at least one unstated assumption neither expert surfaced
-5. Integrated Assessment resolves the tension — never averages it
+### Complexity Tiers
+
+| Tier | Experts | Output |
+|---|---|---|
+| **LOW (0–14)** | None | 2–3 findings + next steps |
+| **MEDIUM (15–29)** | 1 expert | Core Claim + Evidence + Assumption |
+| **HIGH (30–44)** | 1 expert + scenarios | Deep analysis + feasibility |
+| **VERY HIGH (45+)** | 2 experts + Meta-Advisor | Collaboration mode with reasoning audit |
 
 ---
 
-## The Wiki System
+## The 11 Agents
 
-### Directory Structure
+| Agent | Domain | Model |
+|---|---|---|
+| **Orchestrator** | Routing, complexity scoring, wiki management | Opus 4.7 |
+| **Brand & Market Strategist** | Competitive positioning, narrative coherence | Sonnet 4.6 |
+| **User Research Specialist** | User behavior, qualitative synthesis | Haiku 4.5 |
+| **Growth Leader** | Growth loops, retention, funnel optimization | Haiku 4.5 |
+| **Product Marketing Manager** | Campaigns, launches, messaging | Haiku 4.5 |
+| **Technical Advisor** | Architecture, infrastructure, scalability | Sonnet 4.6 |
+| **Data & Analytics Lead** | Metrics design, causal inference, on-chain data | Sonnet 4.6 |
+| **Financial Analyst** | Unit economics, P&L, pricing, runway | Sonnet 4.6 |
+| **Web3 Protocol Architect** | Smart contracts, L1/L2, ZK, MEV, consensus | Sonnet 4.6 |
+| **Token & Mechanism Designer** | Tokenomics, governance, incentive design | Sonnet 4.6 |
+| **Meta-Advisor** | Reasoning auditor, validates expert dialogue | Opus 4.7 |
+
+---
+
+## Wiki System
+
+Persistent memory per project.
 
 ```
 wiki/
-  index.md          — content catalog; updated on every operation
-  log.md            — append-only chronological record
-  overview.md       — evolving domain synthesis
-  notes/            — filed analysis outputs (the compounding layer)
-  sources/          — one summary per ingested raw source
-  entities/         — one page per named entity (person, org, project, protocol)
-  concepts/         — one page per concept or theme
-  meta/             — reasoning quality layer (NOT domain knowledge)
-    calibration.md      — complexity scoring deltas and correction signals
-    persona-fit.md      — learned persona matches + discovered blind spots
-    framing-patterns.md — crystallized reframe patterns by topic
-    user-prefs.md       — communication and format preferences
-
-raw/                — source documents; IMMUTABLE, never modified by LLM
+├── index.md             ← Catalog of analyses
+├── log.md               ← Operation log
+├── notes/               ← Analysis outputs
+├── sources/             ← Ingested sources
+├── entities/            ← Named entities
+├── concepts/            ← Frameworks
+└── meta/                ← Meta-learning layer
+    ├── calibration.md       (complexity score adjustments)
+    ├── persona-fit.md       (learned expert selections)
+    ├── framing-patterns.md  (reframe patterns)
+    └── user-prefs.md        (user preferences)
 ```
 
-### Wiki Operations
-
-| Operation | Trigger | What it does |
-|---|---|---|
-| `ANALYZE` | Any analysis request | Full reasoning pipeline + knowledge writeback + meta writeback |
-| `INGEST <source>` | URL, doc, transcript, spec | Extracts claims; creates/updates source, entity, and concept pages |
-| `QUERY <question>` | "What do we know about X?" | Synthesizes wiki knowledge with citations; files if substantive |
-| `LINT` | "Audit the wiki" | Detects conflicts, orphan pages, unresolved TODOs, meta drift |
-| `LEARN` | "Learn from that" | Synthesizes session learning signals into wiki/meta/; promotes patterns to crystallized |
-
-### Knowledge never evaporates
-
-Every MEDIUM+ analysis produces two outputs: the answer, and the wiki update. Analysis filed to `wiki/notes/` becomes input to future sessions via the Wiki Reasoning Loop (Step 0b). Prior conclusions are not overridden silently — conflicts are flagged explicitly with `[CONFLICT with: page]`.
+Every analysis is filed to wiki + learning signals recorded. Future sessions load prior context, making the system smarter over time.
 
 ---
 
-## The Self-Training Layer
+## Getting Started (5 minutes)
 
-The system learns from every session through four mechanisms:
+### Option 1: Clone & Copy
 
-### 1. Signal Capture
-After each analysis, the Learning Event Generator (Step 9) detects:
-- **Calibration delta** — complexity tier used differed from initial score
-- **Persona surprise** — keyword-triggered persona was overridden or supplemented
-- **Framing correction** — Pre-Analysis Challenge caught a framing error
-- **New blind spot** — analysis surfaced a systematic gap not in either register
-- **User preference signal** — correction or strong confirmation in user's message
+```bash
+git clone https://github.com/0xarmagan/multi-expert-intelligence-skills.git
+cd multi-expert-intelligence-skills-main
 
-### 2. Four Meta Files
+# Copy agents to your project
+cp -r .claude/agents your-project/
 
-| File | What it accumulates |
-|---|---|
-| `calibration.md` | When complexity scores were off and why |
-| `persona-fit.md` | When a better persona existed + discovered blind spots per persona |
-| `framing-patterns.md` | Question patterns that consistently need reframing |
-| `user-prefs.md` | Communication, format, and domain preferences |
+# Initialize wiki (optional)
+mkdir -p wiki/{meta,notes,sources,entities,concepts}
+touch wiki/{index,log}.md
 
-### 3. Prior Injection
-Before scoring the next question, meta files are loaded (L1.5 token budget tier). The system doesn't start cold — it starts with:
-- Calibration adjustment applied to complexity score
-- Framing patterns seeding the Pre-Analysis Challenge
-- Learned persona fit signal available for persona selection
-
-### 4. Pattern Crystallization
-When a pattern appears in 3+ sessions consistently, it promotes from `emerging` to `crystallized` and is applied automatically. LEARN and LINT audit the meta layer, detect drift, and flag patterns approaching threshold.
-
-
----
-
-## 📊 Self-Assessment Scorecard
-
-Every response ends with a mandatory quality table:
-
-| Dimension | Score | Notes |
-|---|---|---|
-| Analytical Depth | L? / L4 | |
-| Evidence Quality | L? / L4 | |
-| Neutrality | L? / L4 | |
-| Actionability | L? / L4 | |
-
-**L1** = surface / restates the question · **L2** = descriptive / avoids commitment · **L3** = analytical / names binding constraint · **L4** = strategic / surfaces question behind the question
-
-Every MEDIUM+ response targets L3 or above on all four dimensions.
-
----
-
-## 🛠️ Getting Started
-
-1. **Clone** this repository.
-2. **Install skill:** Copy `skills/multi-expert-intelligence-agent-system/` to your agent's skill directory, or install the `.skill` package directly in Cowork.
-3. **Activate:** Any analysis, evaluation, or "help me decide" request triggers the skill automatically.
-4. **Initialize wiki:** Ask `"initialize wiki"` in your project directory to create the full memory structure.
-
-```text
-projects/<name>/
-  wiki/              ← Compounding memory (notes, sources, entities, concepts)
-  raw/               ← Immutable source documents
-  STRATEGIC_DEBT.md  ← Auto-generated LINT output
+# Use in Claude Code
+# Ask: "Analyze our product strategy"
 ```
 
-*The expert council reasons. The wiki remembers. The quality layer holds them accountable. Together they compound.*
+### Option 2: Manual Setup
+
+1. Copy `.claude/agents/` folder to your project
+2. Create `wiki/` directory structure (optional but recommended)
+3. Start asking questions in Claude Code
+
+---
+
+## Cost Efficiency
+
+- **Single expert (MEDIUM):** ~3,500–8,000 tokens (~$0.03–0.08)
+- **Two experts (VERY HIGH):** ~10,000–22,000 tokens (~$0.08–0.20)
+- **10 analyses/day:** ~$2–5/day (Sonnet/Haiku mix)
+
+---
+
+## FAQ
+
+**Q: Do I need all 9 experts?**
+A: No. Start with orchestrator + Brand Strategist. Add others as your question types evolve.
+
+**Q: Can I customize agents?**
+A: Yes. Edit `.claude/agents/<expert>.md` — system prompt, tools, model, frameworks.
+
+**Q: Does this work without a wiki?**
+A: Yes, but no persistent memory. Each session is independent. Recommended: use wiki.
+
+**Q: Does this work in claude.ai web app?**
+A: Yes, but without agents — falls back to single integrated SKILL. Agents require Claude Code.
+
+---
+
+## Documentation
+
+Full agent definitions and strategic frameworks: `skills/multi-expert-intelligence-agent-system/`
+
+Orchestrator logic & pipeline: `.claude/agents/orchestrator.md`
+
+For detailed system documentation: `skills/multi-expert-intelligence-agent-system/README.md`
+
+---
+
+## Next Steps
+
+1. **Clone the repo** and follow Getting Started
+2. **Ask a strategic question** in Claude Code
+3. **Let the system learn** — each analysis improves the next
+4. **Share with your team** — fork/clone to multiply the benefit
